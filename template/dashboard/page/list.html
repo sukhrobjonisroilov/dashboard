@@ -25,7 +25,7 @@
                                  <th>N0</th>
                                   <th>Name</th>
                                  <th>Position</th>
-                                 <th>Lavozimi</th>
+                                 <th>Tahrirlash</th>
 
 
 
@@ -52,7 +52,7 @@
                                      <a href="{% url 'ishchi_emp' %}" type="button" class="icon text-danger" data-toggle="modal" data-target=".bd-example-modal-sm-{{ forloop.counter }}">
                                          <i class="fa fa-trash"> </i>
                                      </a>
-                                     <a href="{% url 'add_emp' %}" title="edit table" class="icon">
+                                     <a href="{% url 'edit_emp' pk=foo.pk %}" title="edit table" class="icon">
                                          <i class="fa fa-pen"> </i>
                                      </a>
 

@@ -228,8 +228,19 @@ def info(request, pk):
 
 
 @login_required(login_url='login')
-def ishchi_edit(request):
-    return render(request, 'dashboard/page/form.html')
+def ishchi_edit(request,pk):
+    roots = Xodimlar.objects.filter(pk=pk).first()
+    if request.POST:
+        form = XodimlarForm(request.POST,instance=roots)
+        if form.is_valid():
+            form.save()
+            return redirect('ishchi_emp')
+    form = XodimlarForm(instance=roots)
+    ctx = {
+        'form':form
+    }
+
+    return render(request, 'dashboard/page/form.html',ctx)
 
 
 @login_required(login_url='login')

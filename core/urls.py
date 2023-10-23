@@ -14,7 +14,7 @@ urlpatterns = [
     #xodimlar
     path('ishchi/',ishchi_list,name='ishchi_emp'),#xodimlar umumiy royxati
     path('add/',form_emp,name='add_emp'),#xodim qoshish
-    path('edit/',ishchi_edit,name='edit_emp'),#xodim edit qilish
+    path('edit/<int:pk>/',ishchi_edit,name='edit_emp'),#xodim edit qilish
     path('info/<int:pk>/',info,name ='info'),#malumot
-    path('del/<int:pk>/<int:conf>/',xodim_delete,name='xodim_delete')
+    path('del/<int:pk>/<int:conf>/',xodim_delete,name='xodim_delete') #xodimlar delete o'chirish funksiyasi
 ]
