@@ -1,0 +1,53 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}info{% endblock %}
+{% load static %}
+{% block content %}
+<h1>User Haqida malumot</h1>
+<div class="container-fluid">
+
+
+
+   <div class="row">
+
+      <div class="col-lg-4">
+
+         <div class="card card-block p-card">
+            <div class="profile-box">
+               <div class="">
+
+                   
+                  <img src="{% static 'assets/images/user/1.jpg' %}" alt="profile-bg"
+                     class="d-block mx-auto img-fluid mb-1">
+                  <h3 class="font-600 text-blue text-center mb-9"> {{ employes.ism }}</h3>
+                  <p class="text-blue text-center mb-2">{{ employes.lavozim }}</p>
+               </div>
+            
+            </div>
+         </div>
+
+
+      </div>
+      <div class="col-lg-8">
+         <div class="card card-block">
+            <div class="card-header d-flex justify-content-between pb-0">
+               <div class="header-title">
+                  <h4 class="card-title mb-0">Malumot haqida</h4>
+               </div>
+            </div>
+            <div class="card-body">
+               <p> {{ employes.maosh }}
+               </p>
+
+
+
+            </div>
+         </div>
+
+      </div>
+
+   </div>
+
+
+{#                   {% endfor %}#}
+</div>
+{% endblock %}

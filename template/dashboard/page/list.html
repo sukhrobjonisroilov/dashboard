@@ -1,0 +1,96 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %}Xodimlar{% endblock %}
+{% block content %}
+<h1>Assalomu alaykum</h1>
+     <div class="container-fluid">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="card">
+                  <div class="card-header d-flex justify-content-between">
+
+
+                  </div>
+                  <div class="card-body">
+
+                     <div id="table" class="table-editable">
+                        <span class=" float-right mb-3 mr-2">
+                        <a href="{% url 'add_emp' %}" class="btn btn-sm bg-primary"><i
+                           class=""><span class="">Add New</span></i>
+                        </a>
+                        </span>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                           <thead>
+                              <tr>
+                                 <th>N0</th>
+                                  <th>Name</th>
+                                 <th>Position</th>
+                                 <th>Lavozimi</th>
+
+
+
+                              </tr>
+                           </thead>
+                           <tbody>
+
+                            {% for foo in emp_all %}
+
+
+
+
+                              <tr>
+
+                                 <td >{{ forloop.counter }}</td>
+                                 <td >{{ foo.ism }}</td>
+                                  <td >{{ foo.lavozim }}</td>
+
+
+                                 <td>
+                                     <a href="{% url 'info' pk=foo.pk %}" title="malumot" class="icon text-info">
+                                         <i class="fa fa-user"> </i>
+                                     </a>
+                                     <a href="{% url 'ishchi_emp' %}" type="button" class="icon text-danger" data-toggle="modal" data-target=".bd-example-modal-sm-{{ forloop.counter }}">
+                                         <i class="fa fa-trash"> </i>
+                                     </a>
+                                     <a href="{% url 'add_emp' %}" title="edit table" class="icon">
+                                         <i class="fa fa-pen"> </i>
+                                     </a>
+
+                                 </td>
+
+                              </tr>
+                           {% endfor %}
+
+
+
+
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+     {% for foo in emp_all %}
+         <div class="modal fade bd-example-modal-sm-{{ forloop.counter }}" tabindex="-1" role="dialog"  aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h5 class="modal-title">Modal title</h5>
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                                 </button>
+                              </div>
+                              <div class="modal-body">
+                                 <p>Rostan ham {{ foo.ism }} o'chirmoqchimisiz</p>
+                              </div>
+                              <div class="modal-footer">
+                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Bekor qilish</button>
+                                 <a href="{% url 'xodim_delete' pk=foo.pk conf=1 %}" type="button" class="btn btn-primary">Ha</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+    {% endfor %}
+{% endblock %}

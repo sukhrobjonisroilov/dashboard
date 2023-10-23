@@ -1,0 +1,32 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Edit|add table{% endblock %}
+{% load bootstrap4 %}
+{% block content %}
+<h1>Assalomu alaykum</h1>
+    <div class="container-fluid">
+   <div class="card-body">
+
+                     <form method="post">
+                         {% csrf_token %}
+                        <div class="form-group">
+                           {% bootstrap_field form.ism %}
+                        </div>
+                        <div class="form-group">
+                            {% bootstrap_field form.yosh %}
+                        </div>
+                        <div class="form-group">
+                          {% bootstrap_field form.maosh %}
+                        </div>
+                        <div class="form-group">
+                           {% bootstrap_field form.maosh_type %}
+                        </div>
+                           <div class="form-group">
+                           {% bootstrap_field form.lavozim %}
+                        </div>
+                         <button type="submit" class="btn btn-primary mr-2">Saqlash</button>
+                        <a href="{% url 'ishchi_emp' %}" class="btn bg-danger">Orqaga</a>
+                     </form>
+                  </div>
+    </div>
+
+{% endblock %}
